@@ -1,0 +1,10 @@
+rm sites.txt index.html *.js websites.json
+#wget https://ssl10.ovh.net/~allmanga/community/latest_v2/
+wget http://uguubot.com/AMR/
+
+cat index.html | awk -F"href=" '{print $2}' | awk -F\" '{print $2}' > sites.txt
+for site in `cat sites.txt`
+do
+#wget https://ssl10.ovh.net/~allmanga/community/latest_v2/$site
+wget http://uguubot.com/AMR/$site
+done
